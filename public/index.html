@@ -1,0 +1,80 @@
+<!--main root html file-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="mainApp">
+
+<head>
+  <!--meta tag description-->
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Task </title>
+  <link rel="icon" href="../assets/task.png">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <!-- load angular -->
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="particles.min.js" charset="utf-8"></script>
+  <style media="screen">
+    b {
+      text-align: center;
+      font-weight: bold;
+      top: 4px;
+    }
+  </style>
+</head>
+<body ng-controller="mainController">
+  <div id="particles-js"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col s6 offset-s3" style="position:relative;z-index:999">
+        <center>
+          <div class="card-panel teal lighten-2">
+            <h4>Do your best work.. <span class="badge"><h4>{{ dailygoals.length }}</h4></span></h4></div>
+        </center>
+        <!--dailygoal list -->
+        <div id="daily-goal">
+          <ul class="collection" ng-repeat="dailygoal in dailygoals">
+            <li class="collection-item" style="z-index:999;position:relative;padding-bottom:60px;">
+                <b>{{ dailygoal.text }}</b>
+                <label class="btn-floating btn-large waves-effect waves-light red right" ng-click="deleteGoal(dailygoal._id)"><i class="material-icons">delete</i>
+                </label>
+            </li>
+          </ul>
+        </div>
+        <div id="add-new-goal">
+          <ul class="collection">
+            <li class="collection-item">
+              <form class="">
+                <div class="row">
+                  <div class="input-field col s11">
+                    <input id="dailygoal" type="text" class="validate" ng-model="formData.text" required>
+                    <label for="dailygoal">Dailygoal</label>
+                  </div>
+                  <div class="col s1">
+                    <button type="submit" class="btn-floating btn-large waves-effect waves-light red right" ng-click="createGoal()"><i class="material-icons">add</i></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript" src="style.js">
+  </script>
+</body>
+
+</html>
